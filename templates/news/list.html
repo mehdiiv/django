@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>news list</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">writer</th>
+        <th scope="col">title</th>
+        <th scope="col">descript</th>
+        <th scope="col">country</th>
+        <th scope="col">created at</th>
+        <th scope="col">actions</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+           {%for news in object%}
+      <tr>
+        <th scope="row">{{news.id}}</th>
+        <td>{{news.writer}}</td>
+        <td>{{news.title}}</td>
+        <td>{{news.descript}}</td>
+        <td>{{news.country}}</td>
+        <td>{{news.created_at}}</td>
+        <td><a href="{% url 'news_delete' news.id %}" class="btn btn-danger">delete</a></td>
+        <td><a href="{% url 'news_update' news.id %}" class="btn btn-warning">edit</a> </td>
+        <td scope="row"><a href="{% url 'news_detail' news.id %}" class="btn btn-success">show</a></td>
+        
+      </tr>
+      {% endfor %}
+
+         </tbody>
+  </table>
+  {% endblock content %}
