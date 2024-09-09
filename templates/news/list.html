@@ -8,6 +8,7 @@
       <tr>
         <th scope="col">id</th>
         <th scope="col">writer</th>
+        <th scope="col">email</th>       
         <th scope="col">title</th>
         <th scope="col">descript</th>
         <th scope="col">country</th>
@@ -15,6 +16,8 @@
         <th scope="col">actions</th>
         <th scope="col"></th>
         <th scope="col"></th>
+        <th scope="col"></th>
+
 
 
       </tr>
@@ -24,6 +27,7 @@
       <tr>
         <th scope="row">{{news.id}}</th>
         <td>{{news.writer}}</td>
+        <td>{{news.email}}</td>
         <td>{{news.title}}</td>
         <td>{{news.descript}}</td>
         <td>{{news.country}}</td>
@@ -31,6 +35,8 @@
         <td><a href="{% url 'news_delete' news.id %}" class="btn btn-danger">delete</a></td>
         <td><a href="{% url 'news_update' news.id %}" class="btn btn-warning">edit</a> </td>
         <td scope="row"><a href="{% url 'news_detail' news.id %}" class="btn btn-success">show</a></td>
+        <td scope="row"><a href="{% url 'news_send_email' news.id %}" class="btn btn-primary">send sample email</a></td>
+
         
       </tr>
       {% endfor %}

@@ -1,7 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class News(models.Model):
-    writer = models.CharField(max_length=64)
+    writer = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.EmailField(null=True)
     title = models.CharField(max_length=64)
     descript = models.CharField(max_length=64)
     country = models.CharField(max_length=64)
